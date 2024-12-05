@@ -93,6 +93,11 @@
             MensajeErrorCVV = "El CVV debe tener entre 3 y 4 dígitos.";
             return;
         }
+        if (string.IsNullOrEmpty(Tarjetas.NumeroTarjeta))
+        {
+            MensajeErrorTarjeta = "El número de tarjeta no puede estar vacío.";
+            return;
+        }
         if (!ValidarNumeroTarjeta(Tarjetas.NumeroTarjeta))
         {
             MensajeErrorTarjeta = "El número de tarjeta no es válido.";
@@ -121,6 +126,7 @@
         Tarjetas = new TarjetasDto();
         navigation.NavigateTo("/Tarjetas/Index");
     }
+
 
     public bool ValidarNumeroTarjeta(string numeroTarjeta)
     {
